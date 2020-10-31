@@ -503,6 +503,10 @@ export default class Dropdown extends PureComponent {
       title:
       String(title);
 
+    if (this.props.value === null) {
+      title = ""
+    }
+
     return (
       <TextField
         label=''
