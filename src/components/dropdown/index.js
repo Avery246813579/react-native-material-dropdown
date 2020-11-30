@@ -517,7 +517,7 @@ export default class Dropdown extends PureComponent {
     let Field = outlinedTextField ? OutlinedTextField : TextField;
 
     return (
-      <TextField
+      <Field
         label=''
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 2 })}
 
