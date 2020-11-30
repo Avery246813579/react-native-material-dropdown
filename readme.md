@@ -96,6 +96,7 @@ class Example extends Component {
  labelExtractor    | Extract label from item (args: item, index)   | Function | ({ label }) => label
  propsExtractor    | Extract props from item (args: item, index)   | Function | () => null
  onChangeText      | Selection callback (args: value, index, data) | Function | -
+ outlinedTextField | If the text field should be outlined          | Boolean  | false
 
 Other [TextField][textfield], [TextInput][textinput] and [TouchableWithoutFeedback][touchable] properties will also work
 
