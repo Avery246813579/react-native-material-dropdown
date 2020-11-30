@@ -13,7 +13,7 @@ import {
   I18nManager,
 } from 'react-native';
 import Ripple from 'react-native-material-ripple';
-import { TextField } from 'react-native-material-textfield';
+import { TextField, OutlinedTextField } from 'react-native-material-textfield';
 
 import DropdownItem from '../item';
 import styles from './styles';
@@ -76,6 +76,8 @@ export default class Dropdown extends PureComponent {
     ],
 
     useNativeDriver: false,
+    
+    outlinedTextField: false
   };
 
   static propTypes = {
@@ -153,6 +155,8 @@ export default class Dropdown extends PureComponent {
     supportedOrientations: PropTypes.arrayOf(PropTypes.string),
 
     useNativeDriver: PropTypes.bool,
+    
+    outlinedTextField: PropTypes.bool
   };
 
   constructor(props) {
@@ -475,12 +479,15 @@ export default class Dropdown extends PureComponent {
   }
 
   renderBase(props) {
-    let { value } = this.state;
+    let { value, modal } = this.state;
     let {
       data,
+      tintColor,
+      baseColor,
       renderBase,
       labelExtractor,
       dropdownOffset,
+      outlinedTextField,
       renderAccessory = this.renderAccessory,
     } = this.props;
 
@@ -506,6 +513,8 @@ export default class Dropdown extends PureComponent {
     if (this.props.value === null) {
       title = ""
     }
+    
+    let Field = outlinedTextField ? OutlinedTextField : TextField;
 
     return (
       <TextField
@@ -518,6 +527,7 @@ export default class Dropdown extends PureComponent {
         editable={false}
         onChangeText={undefined}
         renderAccessory={renderAccessory}
+        baseColor={modal ? tintColor : baseColor}
       />
     );
   }
